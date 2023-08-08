@@ -14,10 +14,11 @@ WHERE amount BETWEEN 3.99 AND 5.99
 -- Answer: 5,607
 
 -- Question 3. What films have exactly 7 copies? (search in inventory)
-SELECT count(*), film_id
+SELECT count(*), film_id 
 FROM inventory
-GROUP BY film_id
-ORDER BY count(7) DESC
+GROUP BY film_id 
+HAVING count(*) = 7
+ORDER BY count DESC
 
 
 -- Answer: 116 films have 7 copies
@@ -32,7 +33,7 @@ WHERE first_name = 'Willie'
 -- Question 5. What store employee (get the id) sold the most rentals (use the rental table)?
 SELECT staff_id, COUNT(*) AS rental_count 
 FROM rental
-GROUP BY rental.staff_id 
+GROUP BY staff_id 
 ORDER BY rental_count DESC;
 
 
